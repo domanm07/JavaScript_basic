@@ -33,5 +33,33 @@ const card = document.querySelector(".card")
 card.style.backgroundColor = "darkgray"
 button.textContent = "Új szöveg";
 button.style.backgroundColor = "rgb(200, 20, 20)";
-button.style.display = "none"
+ // button.style.display = "none"
 console.log(button);
+
+/* Array (tömb) ~ Python lista (dinamikus, heterogén)
+    const t = []; ne const t = new Array();
+    Elemek elérése: t[0], t.at(-1);
+    t.slice(start, end) end nélkül a tömb végig megy. (Szeletelő) ~ [::]
+    t.splice(start, deletedCount, inserted elements)
+    t.toSplice(start, deletedCount, inserted elements)
+    const newT = t.tospliced( start, )
+    t.index(20)
+    t.toString() --> '10,20,30'
+    t.join('') --> '102030'
+ */
+
+
+const pElements = document.querySelectorAll("p");
+const floatDiv = document.querySelector(".float-div");
+pElements.at(-1).style.fontfamily = "Arial";
+pElements[pElements.length-1].style.color = "hsl(100, 60%, 70%)";
+Array.from(pElements).splice(0, 3);
+// Az Array.from() metódus tömböt készít a nodeList-ből. A NodeList nem tömb!!!
+
+floatDiv.innerHTML = "";
+console.log(Array.from(pElements));
+for (let element of Array.from(pElements)){
+    console.log(element.innerHTML);
+    floatDiv.innerHTML += element.innerHTML;
+}
+// floatDiv.innerHTML = 
